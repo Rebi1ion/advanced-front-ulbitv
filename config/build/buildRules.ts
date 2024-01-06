@@ -19,10 +19,12 @@ export function buildRules({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         loader: "css-loader",
         options: {
           modules: {
-				//меняет названия стилей на хэш только в файлах где присутствует .module.
+            //меняет названия стилей на хэш только в файлах где присутствует .module.
             auto: /\.module\./,
-				//меняет названия стилей на читабельные в dev режиме
-            localIdentName: isDev ? "[path][name]__[local]" : "[hash:base64]",
+            //меняет названия стилей на читабельные в dev режиме
+            localIdentName: isDev
+              ? "[path][name]__[local]--[hash:base64:8]"
+              : "[hash:base64:8]",
           },
         },
       },
