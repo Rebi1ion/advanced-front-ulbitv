@@ -1,0 +1,18 @@
+//основной scss файл в который импортируются остальные файлы стилей 
+@import "./reset";
+@import "./variables/globals";
+
+@import "./themes/darkTheme";
+@import "./themes/lightTheme";
+
+.app {
+	height: 100vh;
+	font: var(--font-m);
+}
+
+
+button {
+	padding: 10px 5px;
+	border: 1px solid #000;
+	border-radius: 10px;
+}
