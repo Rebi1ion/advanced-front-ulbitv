@@ -1,9 +1,13 @@
-//провайдером необходимо обернуть проект, чтобы иметь доступ к контексту 
+//провайдером необходимо обернуть проект, чтобы иметь доступ к контексту
 
 import { FC, useMemo, useState } from "react";
-import { LOCAL_STORAGE_THEME, Theme, ThemeContext } from "./ThemeContext";
+import {
+  LOCAL_STORAGE_THEME,
+  Theme,
+  ThemeContext,
+} from "../lib/theme/ThemeContext";
 
-const ThemeProvider: FC = ({ children }) => {
+export const ThemeProvider: FC = ({ children }) => {
   const defaultTheme =
     (localStorage.getItem(LOCAL_STORAGE_THEME) as Theme) || Theme.LIGHT;
   const [theme, setTheme] = useState(defaultTheme);
@@ -19,5 +23,3 @@ const ThemeProvider: FC = ({ children }) => {
     </ThemeContext.Provider>
   );
 };
-
-export default ThemeProvider;

@@ -31,7 +31,7 @@ export function buildWebpackConfig(
 
     devServer: isDev ? buildDevServer(options) : undefined,
 
-    resolve: buildResolvers(),
+    resolve: buildResolvers(options),
 
     plugins: buildPlugins(options),
   };
