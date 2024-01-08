@@ -1,13 +1,16 @@
-import { Counter } from "./components/Counter";
-import "./index.scss";
+import "./styles/index.scss";
 import { Route, Routes, Link } from "react-router-dom";
 import { MainPageAsync } from "./pages/MainPage/MainPage.async";
 import { AboutPageAsync } from "./pages/AboutPage/AboutPage.async";
 import { Suspense } from "react";
+import useTheme from "./theme/useTheme";
 
 function App() {
+  const { toggleTheme, theme } = useTheme();
+
   return (
-    <div className="app">
+    <div className={`app ${theme}`}>
+      <button onClick={toggleTheme}>Поменять тему</button>
       <Link to={"/"} style={{ marginRight: "20px" }}>
         Главная
       </Link>
