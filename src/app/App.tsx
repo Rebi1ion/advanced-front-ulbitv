@@ -5,12 +5,11 @@ import { AppRoutes } from "./routes";
 import { Navbar } from "widgets/Navbar";
 
 function App() {
-  const { toggleTheme, theme } = useTheme();
+  const { theme } = useTheme();
 
   return (
     <div className={classNames("app", {}, [theme])}>
       <Navbar className={theme} />
-      <button onClick={toggleTheme}>Поменять тему</button>
       <AppRoutes />
     </div>
   );
