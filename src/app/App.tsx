@@ -1,10 +1,8 @@
 import "./styles/index.scss";
-import { Route, Routes, Link } from "react-router-dom";
-import { MainPage } from "pages/MainPage";
-import { AboutPage } from "pages/AboutPage";
-import { Suspense } from "react";
+import { Link } from "react-router-dom";
 import { useTheme } from "./providers/ThemeProvider";
 import classNames from "shared/lib/helpers/classNames/classNames";
+import { AppRoutes } from "./routes";
 
 function App() {
   const { toggleTheme, theme } = useTheme();
@@ -17,12 +15,7 @@ function App() {
       </Link>
       <Link to={"/about"}>О нас</Link>
 
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/about" element={<AboutPage />} />
-        </Routes>
-      </Suspense>
+      <AppRoutes />
     </div>
   );
 }
