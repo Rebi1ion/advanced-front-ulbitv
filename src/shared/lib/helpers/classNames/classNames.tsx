@@ -7,13 +7,13 @@ interface Mods {
 
 const classNames = (
   className: string,
-  mods: Mods,
+  mods?: Mods,
   additional?: string[]
 ): string => {
   return [
     className,
-    ...additional,
-    Object.entries(mods)
+    ...(additional || []),
+    Object.entries(mods || {})
       .filter((cls) => cls[1])
       .map((cls) => cls[0])
       .join(" "),

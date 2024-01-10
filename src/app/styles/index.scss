@@ -1,4 +1,4 @@
-//основной scss файл в который импортируются остальные файлы стилей 
+//основной scss файл в который импортируются остальные файлы стилей
 @import "./reset";
 @import "./variables/globals";
 
@@ -8,8 +8,10 @@
 .app {
 	height: 100vh;
 	font: var(--font-m);
-}
 
+	background-color: var(--bg-color);
+	color: var(--primary-color);
+}
 
 button {
 	padding: 10px 5px;
