@@ -18,3 +18,12 @@ button {
 	border: 1px solid #000;
 	border-radius: 10px;
 }
+
+.content-page {
+	display: flex;
+}
+
+.page-wrapper {
+	padding: 20px;
+	flex-grow: 1;
+}
