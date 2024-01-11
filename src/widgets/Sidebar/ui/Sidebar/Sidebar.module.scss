@@ -1,0 +1,19 @@
+.Sidebar {
+	width: var(--sidebar-width);
+	height: calc(100vh - var(--navbar-height));
+	background-color: var(--inverted-bg-color);
+	transition: width 0.3s ease;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+}
+
+.collapsed {
+	width: var(--sidebar-width-collapsed);
+}
+
+.switchers {
+	position: absolute;
+	bottom: 20px;
+}
