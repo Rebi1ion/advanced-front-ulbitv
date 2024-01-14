@@ -5,11 +5,11 @@
 }
 
 *,
-*:before,
-*:after {
-	-webkit-box-sizing: border-box;
+*::before,
+*::after {
 	box-sizing: border-box;
-	//font-size: 62.5%;
+
+	// font-size: 62.5%;
 }
 
 // :focus,
