@@ -1,7 +1,4 @@
-type Mods = Record<string, string | boolean>
-
-// тот же самый тип
-// type ModsType = Record<string, string | boolean>;
+type Mods = Record<string, boolean | undefined>;
 
 const classNames = (
   className: string,
