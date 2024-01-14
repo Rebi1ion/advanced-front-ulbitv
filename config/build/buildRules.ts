@@ -1,8 +1,8 @@
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import webpack from "webpack";
-import { BuildOptions } from "./types/config";
+import type webpack from "webpack";
+import { type BuildOptions } from "./types/config";
 
-export function buildRules({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildRules ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const typescriptLoader = {
     test: /\.tsx?$/,
     use: "ts-loader",
@@ -19,9 +19,9 @@ export function buildRules({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         loader: "css-loader",
         options: {
           modules: {
-            //меняет названия стилей на хэш только в файлах где присутствует .module.
+            // меняет названия стилей на хэш только в файлах где присутствует .module.
             auto: /\.module\./,
-            //меняет названия стилей на читабельные в dev режиме
+            // меняет названия стилей на читабельные в dev режиме
             localIdentName: isDev
               ? "[path][name]__[local]--[hash:base64:8]"
               : "[hash:base64:8]",

@@ -1,6 +1,13 @@
-import { BuildOptions } from "./types/config";
+import { type BuildOptions } from "./types/config";
 
-export function buildDevServer({ port }: BuildOptions) {
+interface buildDevServerTypes {
+  port: number;
+  open: boolean;
+  historyApiFallback: boolean;
+  hot: boolean;
+}
+
+export function buildDevServer({ port }: BuildOptions): buildDevServerTypes {
   return {
     port,
     open: true,
