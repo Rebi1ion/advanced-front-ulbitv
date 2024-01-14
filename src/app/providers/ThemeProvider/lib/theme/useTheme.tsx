@@ -1,5 +1,5 @@
-//хук для получения доступа к переменной темы и функции переключения тем
-//можно вызвать его в любом файле проекта
+// хук для получения доступа к переменной темы и функции переключения тем
+// можно вызвать его в любом файле проекта
 
 import { useContext } from "react";
 import { LOCAL_STORAGE_THEME, Theme, ThemeContext } from "./ThemeContext";
@@ -12,11 +12,11 @@ interface UseToggleTheme {
 export function useTheme(): UseToggleTheme {
   const { theme, setTheme } = useContext(ThemeContext);
 
-  const toggleTheme = () => {
+  function toggleTheme(): void {
     const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
     setTheme(newTheme);
     localStorage.setItem(LOCAL_STORAGE_THEME, newTheme);
-  };
+  }
 
   return {
     toggleTheme,

@@ -1,21 +1,21 @@
-import { BuildOptions } from "./types/config";
-import webpack from "webpack";
+import { type BuildOptions } from "./types/config";
+import type webpack from "webpack";
 import { buildRules } from "./buildRules";
 import { buildResolvers } from "./buildResolvers";
 import { buildPlugins } from "./buildPlugins";
 import { buildDevServer } from "./buildDevServer";
-import webpackDevServer from "webpack-dev-server";
+import type webpackDevServer from "webpack-dev-server";
 
-interface Configuration extends webpackDevServer {
+export interface Configuration extends webpackDevServer {
   devServer: webpackDevServer.Configuration;
 }
 
-export function buildWebpackConfig(
+export function buildWebpackConfig (
   options: BuildOptions
 ): webpack.Configuration {
   const { paths, mode, isDev } = options;
   return {
-    mode: mode,
+    mode,
     entry: paths.entry,
     output: {
       path: paths.output,

@@ -4,9 +4,9 @@ import classNames from "shared/lib/helpers/classNames/classNames";
 import { AppRoutes } from "./routes";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar";
-import { Suspense } from "react";
+import { type FC, Suspense } from "react";
 
-function App() {
+const App: FC = () => {
   const { theme } = useTheme();
 
   return (
@@ -21,6 +21,6 @@ function App() {
       </Suspense>
     </div>
   );
-}
+};
 
 export default App;

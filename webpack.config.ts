@@ -1,6 +1,6 @@
-import webpack from "webpack";
+import type webpack from "webpack";
 import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
-import { BuildEnv, BuildPaths } from "./config/build/types/config";
+import { type BuildEnv, type BuildPaths } from "./config/build/types/config";
 import path from "path";
 
 const paths: BuildPaths = {
@@ -11,9 +11,9 @@ const paths: BuildPaths = {
 };
 
 const config = (env: BuildEnv): webpack.Configuration => {
-  const mode = env.mode || "development";
+  const mode = env.mode ?? "development";
   const isDev = mode === "development";
-  const port = env.port || 3000;
+  const port = env.port ?? 3000;
 
   return buildWebpackConfig({
     mode,

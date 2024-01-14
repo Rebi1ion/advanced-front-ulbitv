@@ -1,10 +1,10 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import webpack from "webpack";
-import { BuildOptions } from "./types/config";
+import { type BuildOptions } from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 
-export function buildPlugins({
+export function buildPlugins ({
   paths,
   isDev,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
@@ -14,7 +14,7 @@ export function buildPlugins({
     }),
     new webpack.ProgressPlugin(),
 
-    //извлекает CSS в отдельные файлы
+    // извлекает CSS в отдельные файлы
     new MiniCssExtractPlugin({
       filename: "css/[name].[contenthash:8].css",
       chunkFilename: "css/[name].[contenthash:8].css",
