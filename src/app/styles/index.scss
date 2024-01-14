@@ -1,14 +1,12 @@
-//основной scss файл в который импортируются остальные файлы стилей
+// основной scss файл в который импортируются остальные файлы стилей
 @import "./reset";
 @import "./variables/globals";
-
 @import "./themes/darkTheme";
 @import "./themes/lightTheme";
 
 .app {
 	height: 100vh;
 	font: var(--font-m);
-
 	background-color: var(--bg-color);
 	color: var(--primary-color);
 }

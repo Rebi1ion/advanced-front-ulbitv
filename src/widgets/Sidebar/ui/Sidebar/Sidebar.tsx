@@ -4,6 +4,7 @@ import { type FC, useState } from "react";
 import { Button } from "shared/ui/Button/Button";
 import { ThemeButton } from "widgets/ThemeButton";
 import { LanguageSwitcher } from "widgets/LanguageSwitcher";
+import { t } from "i18next";
 
 interface SidebarProps {
   className?: string;
@@ -22,7 +23,7 @@ export const Sidebar: FC<SidebarProps> = ({ className = "" }) => {
         className,
       ])}
     >
-      <Button onClick={toggleSidebar}>Toggle Sidebar</Button>
+      <Button onClick={toggleSidebar}>{t("Переключить боковую панель")}</Button>
 
       <div className={cls.switchers}>
         <ThemeButton />

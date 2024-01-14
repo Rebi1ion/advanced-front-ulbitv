@@ -21,7 +21,7 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   ignorePatterns: [".eslintrc.js"],
-  plugins: ["react"],
+  plugins: ["react", "i18next"],
   rules: {
     "@typescript-eslint/no-floating-promises": "warn",
     quotes: [2, "double"],
@@ -72,6 +72,11 @@ module.exports = {
     "@typescript-eslint/space-before-function-paren": "off",
     "@typescript-eslint/naming-convention": "off",
     "react/no-deprecated": "off",
+
+    "i18next/no-literal-string": [
+      2,
+      { markupOnly: true },
+    ],
   },
   globals: {
     __IS_DEV__: true,
