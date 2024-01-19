@@ -75,10 +75,18 @@ module.exports = {
 
     "i18next/no-literal-string": [
       2,
-      { markupOnly: true },
+      { markupOnly: true, ignoreAttribute: ["data-testid"] },
     ],
   },
   globals: {
     __IS_DEV__: true,
   },
+  overrides: [
+    {
+      files: ["*.test.tsx", "*.test.ts"],
+      rules: {
+        "i18next/no-literal-string": "off",
+      },
+    },
+  ],
 };
