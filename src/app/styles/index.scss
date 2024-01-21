@@ -5,6 +5,7 @@
 @import "./themes/lightTheme";
 
 .app {
+	width: 100vw;
 	height: 100vh;
 	font: var(--font-m);
 	background-color: var(--bg-color);
