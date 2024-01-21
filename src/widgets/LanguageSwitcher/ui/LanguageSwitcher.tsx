@@ -12,7 +12,7 @@ export enum Languages {
   EN = "en",
 }
 
-export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ className }) => {
+export const LanguageSwitcher: FC<LanguageSwitcherProps> = () => {
   const { t, i18n } = useTranslation();
 
   const toggleLanguage = (): void => {
@@ -22,7 +22,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ className }) => {
   };
   return (
     <Button
-      className={classNames("", {}, [className ?? ""])}
+      className={classNames("", { invertedColors: true }, [])}
       onClick={toggleLanguage}
       theme={ButtonThemes.CLEAR}
     >

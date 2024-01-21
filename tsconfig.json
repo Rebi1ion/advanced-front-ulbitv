@@ -19,6 +19,13 @@
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
-  //   "include": ["./config/jest/setupJest.ts"]
+  },
+  "include": [
+    "./config/jest/setupJest.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./config/**/*.tsx",
+    "./config/**/*.ts",
+    "./webpack.config.ts"
+  ]
 }

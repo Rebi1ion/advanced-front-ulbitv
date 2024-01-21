@@ -8,5 +8,13 @@
 	background: none;
 	border: none;
 	outline: none;
-	color: var(--inverted-primary-color);
+	color: var(--primary-color);
+}
+
+.outline {
+	border: 1px solid var(--primary-color);
+	background: 0;
+	padding: 5px 10px;
+	outline: none;
+	color: var(--primary-color);
 }

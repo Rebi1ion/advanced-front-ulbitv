@@ -3,7 +3,11 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ["standard-with-typescript", "plugin:react/recommended"],
+  extends: [
+    "standard-with-typescript",
+    "plugin:react/recommended",
+    "plugin:storybook/recommended"
+  ],
   overrides: [
     {
       env: {
@@ -12,6 +16,12 @@ module.exports = {
       files: [".eslintrc.{js,cjs,tsx}"],
       parserOptions: {
         sourceType: "script",
+      },
+    },
+    {
+      files: ["*.test.tsx", "*.test.ts"],
+      rules: {
+        "i18next/no-literal-string": "off",
       },
     },
   ],
@@ -81,12 +91,4 @@ module.exports = {
   globals: {
     __IS_DEV__: true,
   },
-  overrides: [
-    {
-      files: ["*.test.tsx", "*.test.ts"],
-      rules: {
-        "i18next/no-literal-string": "off",
-      },
-    },
-  ],
 };
