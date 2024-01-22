@@ -54,6 +54,7 @@
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
+    "loki": "^0.33.1",
     "mini-css-extract-plugin": "^2.5.3",
     "react-refresh": "^0.12.0",
     "sass": "^1.49.9",
@@ -79,9 +80,11 @@
     "eslint:ts:fix": "eslint **/*.{ts,tsx} --fix",
     "stylelint:scss": "stylelint **/*.scss",
     "stylelint:scss:fix": "stylelint **/*.scss --fix",
-    "unit": "jest --config ./config/jest/jest.config.ts",
+    "test:unit": "jest --config ./config/jest/jest.config.ts",
+    "test:ui": "loki test",
+    "test:ui:ok": "loki approve",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "build-storybook": "storybook build"
+    "storybook:build": "storybook build"
   },
   "repository": {
     "type": "git",
@@ -93,5 +96,20 @@
   "bugs": {
     "url": "https://github.com/Rebi1ion/advanced-front-ulbitv/issues"
   },
-  "homepage": "https://github.com/Rebi1ion/advanced-front-ulbitv#readme"
+  "homepage": "https://github.com/Rebi1ion/advanced-front-ulbitv#readme",
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.app",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.app",
+        "preset": "iPhone 7"
+      }
+    }
+  }
 }
