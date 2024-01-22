@@ -1,8 +1,13 @@
 import path from "path";
 import { type BuildPaths } from "../build/types/config";
 import type webpack from "webpack";
+import { type RuleSetRule } from "webpack";
 
-export default function config({ config }: { config: webpack.Configuration }) {
+export default function config({
+  config,
+}: {
+  config: webpack.Configuration;
+}): webpack.Configuration {
   const paths: BuildPaths = {
     entry: "",
     html: "",
@@ -18,10 +23,13 @@ export default function config({ config }: { config: webpack.Configuration }) {
   //     include: path.resolve(__dirname),
   //   });
 
-  if (config.module)
-    config.module.rules = config.module.rules && [
-      ...config.module.rules.map((rule: any) => {
-        if (/svg/.test(rule.test)) {
+  if (config?.module?.rules !== undefined) {
+    config.module.rules = [
+      ...config.module.rules.map((rule: RuleSetRule) => {
+        if (
+          rule.test instanceof RegExp &&
+          rule.test.toString().includes("svg")
+        ) {
           // Silence the Storybook loaders for SVG files
           return { ...rule, exclude: /\.svg$/i };
         }
@@ -34,6 +42,7 @@ export default function config({ config }: { config: webpack.Configuration }) {
         use: ["@svgr/webpack"],
       },
     ];
+  }
 
   return config;
 }
