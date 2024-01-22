@@ -8,7 +8,8 @@ on:
       - develop 
 jobs:
   build:
-    runs-on: ubuntu-latest  strategy:
+    runs-on: ubuntu-latest  
+    strategy:
       matrix:
         node-version: [18.x]
       
