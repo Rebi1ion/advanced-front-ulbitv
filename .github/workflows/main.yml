@@ -28,17 +28,22 @@ jobs:
 
     - name: run typescript linter
       run: npm run eslint:ts
+      if: always()
 
     - name: run css linter
       run: npm run stylelint:scss
+      if: always()
 
     - name: run unit tests
       run: npm run test:unit
+      if: always()
 
     - name: run storybook build
       run: npm run storybook:build
+      if: always()
 
     - name: run ui screenshot test
       run: npm run test:ui:ci
+      if: always()
 
      
