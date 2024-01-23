@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button, ButtonThemes } from "./Button";
+import { Button, ButtonSizes, ButtonThemes } from "./Button";
 import { ThemeDecorator } from "shared/config/Decorators/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 
@@ -50,5 +50,116 @@ export const OutlineDark: Story = {
   args: {
     children: "Text",
     theme: ButtonThemes.OUTLINE,
+  },
+};
+
+export const PrimaryBgTheme: Story = {
+  args: {
+    children: "Text",
+    theme: ButtonThemes.BACKGROUND,
+  },
+};
+
+export const PrimaryBgThemeDark: Story = {
+  decorators: [ThemeDecorator(Theme.DARK)],
+
+  args: {
+    children: "Text",
+    theme: ButtonThemes.BACKGROUND,
+  },
+};
+
+export const InvertedBgTheme: Story = {
+  args: {
+    children: "Text",
+    theme: ButtonThemes.INVERTED_BACKGROUND,
+  },
+};
+
+export const InvertedBgThemeDark: Story = {
+  decorators: [ThemeDecorator(Theme.DARK)],
+
+  args: {
+    children: "Text",
+    theme: ButtonThemes.INVERTED_BACKGROUND,
+  },
+};
+
+export const InvertedColors: Story = {
+  args: {
+    children: "Text",
+    theme: ButtonThemes.INVERTED_BACKGROUND,
+
+    invertedColors: true,
+  },
+};
+
+export const InvertedColorsDark: Story = {
+  decorators: [ThemeDecorator(Theme.DARK)],
+
+  args: {
+    children: "Text",
+    theme: ButtonThemes.INVERTED_BACKGROUND,
+    invertedColors: true,
+  },
+};
+
+export const SquareSizeS: Story = {
+  args: {
+    children: ">",
+    theme: ButtonThemes.INVERTED_BACKGROUND,
+    square: true,
+    size: ButtonSizes.S,
+  },
+};
+
+export const SquareSizeSDark: Story = {
+  decorators: [ThemeDecorator(Theme.DARK)],
+
+  args: {
+    children: ">",
+    theme: ButtonThemes.INVERTED_BACKGROUND,
+    square: true,
+    size: ButtonSizes.S,
+  },
+};
+
+export const SquareSizeM: Story = {
+  args: {
+    children: ">",
+    theme: ButtonThemes.INVERTED_BACKGROUND,
+    square: true,
+    size: ButtonSizes.M,
+  },
+};
+
+export const SquareSizeMDark: Story = {
+  decorators: [ThemeDecorator(Theme.DARK)],
+
+  args: {
+    children: ">",
+    theme: ButtonThemes.INVERTED_BACKGROUND,
+    square: true,
+    size: ButtonSizes.M,
+  },
+};
+
+export const SquareSizeL: Story = {
+  args: {
+    children: ">",
+    theme: ButtonThemes.INVERTED_BACKGROUND,
+    square: true,
+    size: ButtonSizes.L,
+  },
+};
+
+export const SquareSizeLDark: Story = {
+  decorators: [ThemeDecorator(Theme.DARK)],
+
+  args: {
+    children: ">",
+    theme: ButtonThemes.INVERTED_BACKGROUND,
+    square: true,
+    size: ButtonSizes.L,
   },
 };
