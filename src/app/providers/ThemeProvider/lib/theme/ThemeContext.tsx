@@ -19,6 +19,8 @@ interface ThemeContextProps {
 export const defaultTheme =
   (localStorage.getItem(LOCAL_STORAGE_THEME) as Theme) ?? Theme.LIGHT;
 
+document.body.className = defaultTheme;
+
 export const ThemeContext = createContext<ThemeContextProps>({
   theme: defaultTheme,
   setTheme: () => {},

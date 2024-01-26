@@ -31,7 +31,8 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   ignorePatterns: [".eslintrc.js", "generate-visual-json-report.js"],
-  plugins: ["react", "i18next"],
+
+  plugins: ["react", "i18next", "react-hooks"],
   rules: {
     "@typescript-eslint/no-floating-promises": "warn",
     quotes: [2, "double"],
@@ -87,6 +88,8 @@ module.exports = {
       2,
       { markupOnly: true, ignoreAttribute: ["data-testid"] },
     ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
   },
   globals: {
     __IS_DEV__: true,
