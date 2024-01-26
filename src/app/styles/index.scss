@@ -4,12 +4,15 @@
 @import "./themes/darkTheme";
 @import "./themes/lightTheme";
 
+body {
+	font: var(--font-m);
+	color: var(--primary-color);
+	background-color: var(--bg-color);
+}
+
 .app {
 	width: 100vw;
 	height: 100vh;
-	font: var(--font-m);
-	background-color: var(--bg-color);
-	color: var(--primary-color);
 }
 
 .content-page {
