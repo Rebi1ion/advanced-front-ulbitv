@@ -30,7 +30,7 @@ module.exports = {
     sourceType: "module",
     tsconfigRootDir: __dirname,
   },
-  ignorePatterns: [".eslintrc.js", "generate-visual-json-report.js"],
+  ignorePatterns: [".eslintrc.js", "generate-visual-json-report.js", "json-server/*"],
 
   plugins: ["react", "i18next", "react-hooks"],
   rules: {
