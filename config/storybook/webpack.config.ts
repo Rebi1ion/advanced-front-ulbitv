@@ -1,7 +1,7 @@
 import path from "path";
 import { type BuildPaths } from "../build/types/config";
 import type webpack from "webpack";
-import { type RuleSetRule } from "webpack";
+import { DefinePlugin, type RuleSetRule } from "webpack";
 
 export default function config({
   config,
@@ -16,12 +16,6 @@ export default function config({
   };
   config.resolve?.modules?.push(paths.src);
   config.resolve?.extensions?.push(".ts", "tsx");
-
-  //   config.module?.rules?.push({
-  //     test: /\.scss$/,
-  //     use: ["style-loader", "css-loader?modules&importLoaders", "sass-loader"],
-  //     include: path.resolve(__dirname),
-  //   });
 
   if (config?.module?.rules !== undefined) {
     config.module.rules = [
@@ -43,6 +37,12 @@ export default function config({
       },
     ];
   }
+
+  config?.plugins?.push(
+    new DefinePlugin({
+      __IS_DEV__: true,
+    })
+  );
 
   return config;
 }
