@@ -1,0 +1,19 @@
+.LoginForm {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	position: relative;
+	max-width: 300px;
+}
+
+.loginBtn {
+	margin-left: auto;
+	width: 30%;
+	height: 30px;
+}
+
+// .input {
+// 	width: 20vw;
+// 	height: 6vh;
+// 	padding: 5px;
+// }

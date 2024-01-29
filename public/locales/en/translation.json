@@ -8,5 +8,7 @@
   "Что-то пошло не так": "Something went wrong.",
   "Обновить страницу": "Reload page",
   "Выбросить ошибку": "Throw Error",
-  "Войти": "Login"
+  "Войти": "Log in",
+  "Логин": "Login",
+  "Пароль": "Password"
 }
