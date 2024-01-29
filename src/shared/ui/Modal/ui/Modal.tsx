@@ -14,6 +14,7 @@ import { Portal } from "shared/ui/Portal";
 interface ModalProps {
   children: ReactNode;
   isOpen: boolean;
+  lazy?: boolean;
   className?: string;
   onClose?: () => void;
 }
@@ -25,12 +26,18 @@ export const Modal: FC<ModalProps> = ({
   children,
   isOpen,
   onClose,
+  lazy = false,
 }: ModalProps) => {
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
     [cls.closing]: isClosing,
   };
+
+  useEffect(() => {
+    if (isOpen) setIsMounted(true);
+  }, [isOpen]);
 
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
@@ -65,6 +72,8 @@ export const Modal: FC<ModalProps> = ({
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [isOpen, onKeyDown]);
+
+  if (!isMounted && lazy) return null;
 
   return (
     <Portal>

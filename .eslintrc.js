@@ -30,7 +30,11 @@ module.exports = {
     sourceType: "module",
     tsconfigRootDir: __dirname,
   },
-  ignorePatterns: [".eslintrc.js", "generate-visual-json-report.js", "json-server/*"],
+  ignorePatterns: [
+    ".eslintrc.js",
+    "generate-visual-json-report.js",
+    "json-server/*",
+  ],
 
   plugins: ["react", "i18next", "react-hooks"],
   rules: {
@@ -83,7 +87,7 @@ module.exports = {
     "@typescript-eslint/space-before-function-paren": "off",
     "@typescript-eslint/naming-convention": "off",
     "react/no-deprecated": "off",
-
+    "react/prop-types": "off",
     "i18next/no-literal-string": [
       2,
       { markupOnly: true, ignoreAttribute: ["data-testid"] },

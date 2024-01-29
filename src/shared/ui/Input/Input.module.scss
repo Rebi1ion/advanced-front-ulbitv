@@ -1,0 +1,49 @@
+.InputWrapper {
+	display: flex;
+	align-items: center;
+}
+
+.input {
+	position: relative;
+	font: inherit;
+	background-color: inherit;
+	color: transparent;
+	text-shadow: 0 0 0 var(--primary-color);
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.placeholder {
+	margin-right: 8px;
+}
+
+.caretWrapper {
+	position: relative;
+}
+
+.caret {
+	position: absolute;
+	width: 9px;
+	height: 2px;
+	display: block;
+	background-color: var(--primary-color);
+	left: 0;
+	bottom: 0;
+	animation: blink 0.5s linear infinite;
+}
+
+@keyframes blink {
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 0.1;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}

@@ -3,7 +3,7 @@ import cls from "./Navbar.module.scss";
 import { useTranslation } from "react-i18next";
 import { useState, type FC, useCallback } from "react";
 import { Button, ButtonThemes } from "shared/ui/Button/Button";
-import { Modal } from "shared/ui/Modal";
+import { LoginModal } from "features/AuthByUsername/ui/LoginModal/LoginModal";
 
 interface NavbarProps {
   className?: string;
@@ -16,10 +16,14 @@ export const linksRoutes: Record<string, string> = {
 
 export const Navbar: FC<NavbarProps> = ({ className = "" }) => {
   const { t } = useTranslation();
-  const [isOpenAuthModal, setIsOpenAuthModal] = useState(false);
+  const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
 
-  const onToggleModal = useCallback(() => {
-    setIsOpenAuthModal((prev) => !prev);
+  const onCloseLoginModal = useCallback(() => {
+    setIsOpenLoginModal(false);
+  }, []);
+
+  const onOpenLoginModal = useCallback(() => {
+    setIsOpenLoginModal(true);
   }, []);
 
   return (
@@ -27,7 +31,7 @@ export const Navbar: FC<NavbarProps> = ({ className = "" }) => {
       <div className={classNames(cls.navbarLinks)}>
         <Button
           onClick={() => {
-            onToggleModal();
+            onOpenLoginModal();
           }}
           theme={ButtonThemes.CLEAR}
           invertedColors
@@ -35,9 +39,7 @@ export const Navbar: FC<NavbarProps> = ({ className = "" }) => {
           {t("Войти")}
         </Button>
 
-        <Modal isOpen={isOpenAuthModal} onClose={onToggleModal}>
-          <form></form>
-        </Modal>
+        <LoginModal onClose={onCloseLoginModal} isOpen={isOpenLoginModal} />
       </div>
     </div>
   );
