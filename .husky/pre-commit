@@ -4,5 +4,5 @@
 npm run eslint:ts
 npm run stylelint:scss
 npm run test:unit
-npm run storybook
-npm run test:ui
+npm run storybook:build
+npm run test:ui:ci
