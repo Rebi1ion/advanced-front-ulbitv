@@ -163,3 +163,20 @@ export const SquareSizeLDark: Story = {
     size: ButtonSizes.L,
   },
 };
+
+export const Disabled: Story = {
+  args: {
+    children: "Login",
+    theme: ButtonThemes.OUTLINE,
+    disabled: true,
+  },
+};
+
+export const DisabledDark: Story = {
+  decorators: [ThemeDecorator(Theme.DARK)],
+  args: {
+    children: "Login",
+    theme: ButtonThemes.OUTLINE,
+    disabled: true,
+  },
+};

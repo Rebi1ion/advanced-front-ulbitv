@@ -9,6 +9,9 @@
   "Обновить страницу": "Reload page",
   "Выбросить ошибку": "Throw Error",
   "Войти": "Log in",
+  "Выйти": "Log out",
   "Логин": "Login",
-  "Пароль": "Password"
+  "Пароль": "Password",
+  "Авторизация": "Authorization",
+  "Неправильный логин или пароль": "Uncorrect login or password"
 }
