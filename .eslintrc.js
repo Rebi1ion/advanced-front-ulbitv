@@ -90,7 +90,7 @@ module.exports = {
     "react/prop-types": "off",
     "i18next/no-literal-string": [
       2,
-      { markupOnly: true, ignoreAttribute: ["data-testid"] },
+      { markupOnly: true, ignoreAttribute: ["data-testid", "name"] },
     ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
