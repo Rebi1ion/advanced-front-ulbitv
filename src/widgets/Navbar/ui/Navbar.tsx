@@ -32,7 +32,9 @@ export const Navbar: FC<NavbarProps> = ({ className = "" }) => {
 
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
-  }, [dispatch]);
+    onCloseLoginModal();
+  }, [dispatch, onCloseLoginModal]);
+  console.log(userAuthData);
 
   if (userAuthData !== undefined) {
     return (
@@ -64,7 +66,9 @@ export const Navbar: FC<NavbarProps> = ({ className = "" }) => {
           {t("Войти")}
         </Button>
 
-        <LoginModal onClose={onCloseLoginModal} isOpen={isOpenLoginModal} />
+        {isOpenLoginModal && (
+          <LoginModal onClose={onCloseLoginModal} isOpen={isOpenLoginModal} />
+        )}
       </div>
     </div>
   );
