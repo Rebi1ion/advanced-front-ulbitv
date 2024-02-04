@@ -1,9 +1,9 @@
 import classNames from "shared/lib/helpers/classNames/classNames";
 // import cls from "./ErrorPage.module.scss";
-import { type FC } from "react";
+import { memo, type FC } from "react";
 import { useTranslation } from "react-i18next";
 
-export const ErrorPage: FC = () => {
+export const ErrorPage: FC = memo(() => {
   const { t } = useTranslation();
 
   const reloadPage = (): void => {
@@ -16,4 +16,6 @@ export const ErrorPage: FC = () => {
       <button onClick={reloadPage}>{t("Обновить страницу")}</button>
     </div>
   );
-};
+});
+
+ErrorPage.displayName = "ErrorPage";

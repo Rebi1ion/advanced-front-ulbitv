@@ -1,0 +1,24 @@
+.icon {
+	fill: var(--inverted-primary-color);
+}
+
+.appLink {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+
+	span {
+		transition: 0.15s ease;
+	}
+
+	&.collapsed {
+		gap: 0;
+		justify-content: center;
+
+		span {
+			opacity: 0;
+			width: 0;
+			white-space: nowrap;
+		}
+	}
+}

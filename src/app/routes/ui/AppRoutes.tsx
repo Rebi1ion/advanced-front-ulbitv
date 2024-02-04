@@ -1,9 +1,9 @@
-import { type FC, Suspense } from "react";
+import { type FC, Suspense, memo } from "react";
 import { Route, Routes } from "react-router-dom";
 import { routerConfig } from "shared/config/routeConfig/routeConfig";
 import { PageLoader } from "widgets/PageLoader";
 
-export const AppRoutes: FC = () => {
+export const AppRoutes: FC = memo(() => {
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>
@@ -17,4 +17,6 @@ export const AppRoutes: FC = () => {
       </Routes>
     </Suspense>
   );
-};
+});
+
+AppRoutes.displayName = "AppRoutes";

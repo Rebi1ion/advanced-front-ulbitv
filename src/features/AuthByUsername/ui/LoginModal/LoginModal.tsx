@@ -1,4 +1,4 @@
-import { Suspense, type FC } from "react";
+import { Suspense, type FC, memo } from "react";
 import { Modal } from "shared/ui/Modal";
 import { LoginFormAsync } from "../LoginForm/LoginForm.async";
 import { Loader } from "shared/ui/Loader/Loader";
@@ -9,15 +9,16 @@ interface LoginModalProps {
   onClose?: () => void;
 }
 
-export const LoginModal: FC<LoginModalProps> = ({
-  isOpen,
-  onClose,
-}: LoginModalProps) => {
-  return (
-    <Modal isOpen={isOpen} onClose={onClose} lazy>
-      <Suspense fallback={<Loader />}>
-        <LoginFormAsync />
-      </Suspense>
-    </Modal>
-  );
-};
+export const LoginModal: FC<LoginModalProps> = memo(
+  ({ isOpen, onClose }: LoginModalProps) => {
+    return (
+      <Modal isOpen={isOpen} onClose={onClose} lazy>
+        <Suspense fallback={<Loader />}>
+          <LoginFormAsync onSuccess={onClose} />
+        </Suspense>
+      </Modal>
+    );
+  }
+);
+
+LoginModal.displayName = "LoginModal";
