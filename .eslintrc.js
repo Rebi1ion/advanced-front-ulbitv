@@ -94,6 +94,10 @@ module.exports = {
     ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+
+    // мб не надо убирать
+    "@typescript-eslint/await-thenable": "warn",
+    "@typescript-eslint/no-misused-promises": "warn",
   },
   globals: {
     __IS_DEV__: true,

@@ -34,20 +34,6 @@
 	margin-top: 20px;
 }
 
-.icon {
-	fill: var(--inverted-primary-color);
-}
-
-.appLink {
-	display: flex;
-	gap: 10px;
-	align-items: center;
-
-	span {
-		transition: 0.1s ease;
-	}
-}
-
 .collapsed {
 	width: var(--sidebar-width-collapsed);
 

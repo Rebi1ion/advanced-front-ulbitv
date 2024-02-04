@@ -1,4 +1,10 @@
-import { type ReducersMapObject, configureStore } from "@reduxjs/toolkit";
+import {
+  type ReducersMapObject,
+  configureStore,
+  type AnyAction,
+  type ThunkDispatch,
+  type Dispatch
+} from "@reduxjs/toolkit";
 import { type StateSchema } from "./StateSchema";
 import { counterReducer } from "entities/Counter";
 import { userReducer } from "entities/User";
@@ -27,3 +33,6 @@ export const createReduxStore = (
 
   return store;
 };
+
+export type AppDispatch = ThunkDispatch<StateSchema, undefined, AnyAction> &
+Dispatch<AnyAction>;

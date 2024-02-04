@@ -1,7 +1,7 @@
 import classNames from "shared/lib/helpers/classNames/classNames";
 import cls from "./Navbar.module.scss";
 import { useTranslation } from "react-i18next";
-import { useState, type FC, useCallback } from "react";
+import { useState, type FC, useCallback, memo } from "react";
 import { Button, ButtonThemes } from "shared/ui/Button/Button";
 import { LoginModal } from "features/AuthByUsername";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,7 +16,7 @@ export const linksRoutes: Record<string, string> = {
   about: "/about",
 };
 
-export const Navbar: FC<NavbarProps> = ({ className = "" }) => {
+export const Navbar: FC<NavbarProps> = memo(({ className = "" }) => {
   const { t } = useTranslation();
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
   const userAuthData = useSelector(getUserAuthData);
@@ -32,9 +32,7 @@ export const Navbar: FC<NavbarProps> = ({ className = "" }) => {
 
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
-    onCloseLoginModal();
-  }, [dispatch, onCloseLoginModal]);
-  console.log(userAuthData);
+  }, [dispatch]);
 
   if (userAuthData !== undefined) {
     return (
@@ -72,4 +70,6 @@ export const Navbar: FC<NavbarProps> = ({ className = "" }) => {
       </div>
     </div>
   );
-};
+});
+
+Navbar.displayName = "Navbar";

@@ -3,11 +3,11 @@ import { useTheme } from "./providers/ThemeProvider";
 import { AppRoutes } from "./routes";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar";
-import { type FC, Suspense, useEffect } from "react";
+import { type FC, Suspense, useEffect, memo } from "react";
 import { useDispatch } from "react-redux";
 import { userActions } from "entities/User";
 
-const App: FC = () => {
+const App: FC = memo(() => {
   const { theme } = useTheme();
   const dispatch = useDispatch();
 
@@ -26,6 +26,8 @@ const App: FC = () => {
       </Suspense>
     </div>
   );
-};
+});
+
+App.displayName = "App";
 
 export default App;
