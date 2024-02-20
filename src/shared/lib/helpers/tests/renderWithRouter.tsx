@@ -16,12 +16,10 @@ export default function renderWithRouter(
   options?: RenderWithRouterOptions
 ): RenderOptions {
   return render(
-    <StoreProvider initialState={options?.initialState}>
-      <I18nextProvider i18n={i18nForTests}>
-        <MemoryRouter initialEntries={[options?.path ?? "/"]}>
-          {component}
-        </MemoryRouter>
-      </I18nextProvider>
-    </StoreProvider>
+    <MemoryRouter initialEntries={[options?.path ?? "/"]}>
+      <StoreProvider initialState={options?.initialState}>
+        <I18nextProvider i18n={i18nForTests}>{component}</I18nextProvider>
+      </StoreProvider>
+    </MemoryRouter>
   );
 }
