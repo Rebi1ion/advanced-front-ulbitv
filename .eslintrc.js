@@ -6,7 +6,7 @@ module.exports = {
   extends: [
     "standard-with-typescript",
     "plugin:react/recommended",
-    //  "plugin:storybook/recommended"
+    "plugin:storybook/recommended"
   ],
   overrides: [
     {
@@ -101,5 +101,6 @@ module.exports = {
   },
   globals: {
     __IS_DEV__: true,
+    __API__: true,
   },
 };
