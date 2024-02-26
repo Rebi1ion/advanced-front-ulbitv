@@ -5,6 +5,7 @@ import { memo, type ButtonHTMLAttributes, type FC } from "react";
 export enum ButtonThemes {
   CLEAR = "clear",
   OUTLINE = "outline",
+  OUTLINE_RED = "outline-red",
   BACKGROUND = "background",
   INVERTED_BACKGROUND = "inverted-background",
 }

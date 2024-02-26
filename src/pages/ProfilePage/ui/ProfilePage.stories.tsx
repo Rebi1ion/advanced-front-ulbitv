@@ -4,7 +4,8 @@ import { ThemeDecorator } from "shared/config/Decorators/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 import { StoreDecorator } from "shared/config/Decorators/StoreDecorator";
 import { type Profile } from "entities/Profile";
-import { Countries, Currency } from "shared/const/common";
+import { Countries } from "entities/SelectCountry/model/types/country";
+import { Currency } from "entities/SelectCurrency/model/types/currency";
 
 const meta = {
   title: "pages/ProfilePage",
@@ -34,6 +35,7 @@ const profileState = {
   profile: {
     isLoading: false,
     data: profile,
+    form: profile,
     error: "",
     readonly: true,
   },

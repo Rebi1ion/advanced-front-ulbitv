@@ -28,6 +28,18 @@
 	}
 }
 
+.outline-red {
+	background: 0;
+	color: var(--red-light);
+	border-color: var(--red-light);
+	transition: 0.2s ease;
+
+	&:hover {
+		background-color: var(--red-light);
+		color: var(--inverted-primary-color);
+	}
+}
+
 .background {
 	background-color: var(--bg-color);
 	color: var(--primary-color);

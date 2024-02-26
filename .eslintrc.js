@@ -6,7 +6,7 @@ module.exports = {
   extends: [
     "standard-with-typescript",
     "plugin:react/recommended",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
   ],
   overrides: [
     {
@@ -90,7 +90,7 @@ module.exports = {
     "react/prop-types": "off",
     "i18next/no-literal-string": [
       2,
-      { markupOnly: true, ignoreAttribute: ["data-testid", "name"] },
+      { markupOnly: true, ignoreAttribute: ["data-testid", "name", "alt"] },
     ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
