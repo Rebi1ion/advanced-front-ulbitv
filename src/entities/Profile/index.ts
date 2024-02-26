@@ -1,3 +1,9 @@
+export { updateProfileData } from "./model/services/updateProfileData";
+export { getProfileForm } from "./model/selectors/getProfileForm";
+export { getProfileReadonly } from "./model/selectors/getProfileReadonly";
+export { getProfileData } from "./model/selectors/getProfileData";
+export { getProfileError } from "./model/selectors/getProfileError";
+export { getProfilePending } from "./model/selectors/getProfilePending";
 export { ProfileCard } from "./ui/ProfileCard/ProfileCard";
 export { fetchProfileData } from "./model/services/fetchProfileData";
 export { profileActions, profileReducer } from "./model/slices/profileSlices";

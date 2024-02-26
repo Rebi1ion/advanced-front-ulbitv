@@ -1,10 +1,12 @@
 .InputWrapper {
 	display: flex;
+	width: 100%;
 	align-items: center;
 }
 
 .input {
 	position: relative;
+	width: 100%;
 	font: inherit;
 	background-color: inherit;
 	color: transparent;
@@ -17,10 +19,12 @@
 
 .placeholder {
 	margin-right: 8px;
+	flex-shrink: 0;
 }
 
 .caretWrapper {
 	position: relative;
+	width: 100%;
 }
 
 .caret {
@@ -32,6 +36,10 @@
 	left: 0;
 	bottom: 0;
 	animation: blink 0.5s linear infinite;
+}
+
+.readonly {
+	opacity: 0.5;
 }
 
 @keyframes blink {

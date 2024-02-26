@@ -3,14 +3,18 @@
 	border: 2px solid var(--inverted-bg-color);
 }
 
-.header {
-	display: flex;
-	gap: 20px;
-}
-
 .data {
 	margin-top: 20px;
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
+	position: relative;
+}
+
+.loader,
+.error {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50%;
 }
