@@ -1,6 +1,14 @@
 import type { Countries } from "entities/SelectCountry/model/types/country";
 import type { Currency } from "entities/SelectCurrency/model/types/currency";
 
+export enum ValidateProfileErrors {
+  NO_DATA = "NO_DATA",
+  INCORRECT_USER_DATA = "INCORRECT_USER_DATA",
+  INCORRECT_AGE = "INCORRECT_AGE",
+  INCORRECT_CITY = "INCORRECT_CITY",
+  SERVER_ERROR = "SERVER_ERROR",
+}
+
 export interface Profile {
   first?: string;
   lastname?: string;
@@ -18,4 +26,5 @@ export interface ProfileSchema {
   form?: Profile;
   error?: string;
   readonly: boolean;
+  validateProfileError?: ValidateProfileErrors[];
 }
