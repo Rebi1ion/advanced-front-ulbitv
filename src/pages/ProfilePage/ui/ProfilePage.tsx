@@ -6,9 +6,11 @@ import {
   getProfilePending,
   getProfileReadonly,
   profileActions,
-  profileReducer
+  profileReducer,
+  getValidateProfileErorrs,
+  ValidateProfileErrors
 } from "entities/Profile";
-import { memo, type FC, useEffect, useCallback } from "react";
+import { memo, type FC, useEffect, useCallback, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { type Currency } from "entities/SelectCurrency/model/types/currency";
 import {
@@ -17,9 +19,13 @@ import {
 } from "shared/lib/helpers/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { type Countries } from "entities/SelectCountry";
+import { ProfileHeader } from "./ProfileHeader/ProfileHeader";
+import { Text, TextTheme } from "shared/ui/Text";
+import { useTranslation } from "react-i18next";
 
 const ProfilePage: FC<{ isStorybook?: boolean }> = memo(
   ({ isStorybook = false }) => {
+    const { t } = useTranslation("profile");
     const initialReducers: ReducersList = {
       profile: profileReducer,
     };
@@ -28,6 +34,20 @@ const ProfilePage: FC<{ isStorybook?: boolean }> = memo(
     const isLoading = useSelector(getProfilePending);
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
+    const validateErrors = useSelector(getValidateProfileErorrs);
+
+    const validateErrorTranslates = useMemo(
+      () => ({
+        [ValidateProfileErrors.INCORRECT_AGE]: t("Неккоректный возраст"),
+        [ValidateProfileErrors.INCORRECT_CITY]: t("Неккоректный город"),
+        [ValidateProfileErrors.INCORRECT_USER_DATA]: t(
+          "Неккоректные имя или фамилия"
+        ),
+        [ValidateProfileErrors.NO_DATA]: t("Нет данных"),
+        [ValidateProfileErrors.SERVER_ERROR]: t("Ошибка сервера"),
+      }),
+      [t]
+    );
 
     useEffect(() => {
       if (!isStorybook) void dispatch(fetchProfileData());
@@ -88,20 +108,34 @@ const ProfilePage: FC<{ isStorybook?: boolean }> = memo(
 
     return (
       <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-        <ProfileCard
-          data={formData}
-          error={error}
-          isLoading={isLoading}
-          readonly={readonly}
-          onChangeFirstname={onChangeFirstname}
-          onChangeLastname={onChangeLastname}
-          onChangeAge={onChangeAge}
-          onChangeCity={onChangeCity}
-          onChangeUsername={onChangeUsername}
-          onChangeAvatar={onChangeAvatar}
-          onChangeCurrency={onChangeCurrency}
-          onChangeCountry={onChangeCountry}
-        />
+        <>
+          <ProfileHeader />
+
+          {validateErrors !== undefined &&
+            validateErrors?.length > 0 &&
+            validateErrors.map((error) => (
+              <Text
+                theme={TextTheme.ERROR}
+                text={validateErrorTranslates[error]}
+                key={error}
+              />
+            ))}
+
+          <ProfileCard
+            data={formData}
+            error={error}
+            isLoading={isLoading}
+            readonly={readonly}
+            onChangeFirstname={onChangeFirstname}
+            onChangeLastname={onChangeLastname}
+            onChangeAge={onChangeAge}
+            onChangeCity={onChangeCity}
+            onChangeUsername={onChangeUsername}
+            onChangeAvatar={onChangeAvatar}
+            onChangeCurrency={onChangeCurrency}
+            onChangeCountry={onChangeCountry}
+          />
+        </>
       </DynamicModuleLoader>
     );
   }

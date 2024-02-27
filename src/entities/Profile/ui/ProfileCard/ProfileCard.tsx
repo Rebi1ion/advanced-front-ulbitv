@@ -3,7 +3,6 @@ import cls from "./ProfileCard.module.scss";
 import { type FC } from "react";
 import { useTranslation } from "react-i18next";
 import { Input } from "shared/ui/Input/Input";
-import { ProfileHeader } from "pages/ProfilePage";
 import { type Profile } from "entities/Profile/model/types/profileSchema";
 import { Loader } from "shared/ui/Loader/Loader";
 import { Text, TextTheme } from "shared/ui/Text";
@@ -70,7 +69,6 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 
   return (
     <div className={classNames(cls.ProfileCard, {}, [className])}>
-      <ProfileHeader />
       <div className={cls.data}>
         {Boolean(data?.avatar) && (
           <Avatar src={data?.avatar} alt="avatar" size={150} />
