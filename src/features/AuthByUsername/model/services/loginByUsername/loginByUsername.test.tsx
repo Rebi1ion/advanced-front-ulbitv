@@ -15,7 +15,6 @@ describe("loginByUsername test", () => {
     expect(thunk.dispatch).toHaveBeenCalledWith(
       userActions.setAuthData(userValue)
     );
-    // eslint-disable-next-line @typescript-eslint/unbound-method
     expect(thunk.api.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe("fulfilled");
     expect(thunk.dispatch).toHaveBeenCalledTimes(3);
@@ -30,7 +29,6 @@ describe("loginByUsername test", () => {
       password: "123",
     });
 
-    // eslint-disable-next-line @typescript-eslint/unbound-method
     expect(thunk.api.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe("rejected");
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
