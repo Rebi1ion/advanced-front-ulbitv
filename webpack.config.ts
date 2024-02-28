@@ -15,6 +15,7 @@ const config = (env: BuildEnv): webpack.Configuration => {
   const isDev = mode === "development";
   const port = env.port ?? 3000;
   const apiUrl = env.apiUrl ?? "http://localhost:8000";
+  const project = "frontend";
 
   return buildWebpackConfig({
     mode,
@@ -22,6 +23,7 @@ const config = (env: BuildEnv): webpack.Configuration => {
     isDev,
     port,
     apiUrl,
+    project,
   });
 };
 

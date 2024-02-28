@@ -22,6 +22,7 @@ module.exports = {
       files: ["*.test.tsx", "*.test.ts"],
       rules: {
         "i18next/no-literal-string": "off",
+        "@typescript-eslint/unbound-method": "off",
       },
     },
   ],
@@ -102,5 +103,6 @@ module.exports = {
   globals: {
     __IS_DEV__: true,
     __API__: true,
+    __PROJECT__: true,
   },
 };
