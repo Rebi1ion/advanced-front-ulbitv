@@ -9,6 +9,7 @@ export const LOCAL_STORAGE_THEME = "theme";
 export enum Theme {
   LIGHT = "light",
   DARK = "dark",
+  TURQUOISE = "turquoise",
 }
 
 interface ThemeContextProps {
